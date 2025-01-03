@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class EmployeeCardComponent {
 
-  @Input() employee: any;  
+  @Input() employee: any;  // Employee data passed from the parent component
 
 }

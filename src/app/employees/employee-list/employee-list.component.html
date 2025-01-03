@@ -1,0 +1,15 @@
+<div *ngIf="employees.length > 0; else noEmployees">
+    <h2>Employee List</h2>
+    <ul>
+      <li *ngFor="let employee of employees">
+        <app-employee-card [employee]="employee"></app-employee-card>
+        <button (click)="deleteEmployee(employee.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noEmployees>
+    <p>No employees found.</p>
+  </ng-template>
+  <h2>Employee List</h2>
+<button routerLink="/employees/new" class="btn btn-success">Add Employee</button>

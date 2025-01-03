@@ -1,0 +1,41 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" class="form-control" [ngClass]="{'is-invalid': employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched}">
+      <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" class="invalid-feedback">
+        Name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" class="form-control" [ngClass]="{'is-invalid': employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched}">
+      <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" class="invalid-feedback">
+        Please enter a valid email.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input id="position" formControlName="position" type="text" class="form-control" [ngClass]="{'is-invalid': employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched}">
+      <div *ngIf="employeeForm.get('position')?.invalid && employeeForm.get('position')?.touched" class="invalid-feedback">
+        Position is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="hireDate">Hire Date:</label>
+      <input id="hireDate" formControlName="hireDate" type="date" class="form-control" [ngClass]="{'is-invalid': employeeForm.get('hireDate')?.invalid && employeeForm.get('hireDate')?.touched}">
+      <div *ngIf="employeeForm.get('hireDate')?.invalid && employeeForm.get('hireDate')?.touched" class="invalid-feedback">
+        Hire date is required.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">
+      {{ isEditMode ? 'Update' : 'Add' }} Employee
+    </button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+  
+  </form>
+  

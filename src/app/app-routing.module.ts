@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
   { path: 'employees/new', component: EmployeeFormComponent },
   { path: 'employees/edit/:id', component: EmployeeFormComponent },
-  { path: '', redirectTo: '/employees', pathMatch: 'full' }
+  { path: '', redirectTo: '/employees', pathMatch: 'full' },
+  { path: 'employees', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) }
 ];
 
 @NgModule({
